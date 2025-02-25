@@ -9,6 +9,16 @@ import flowChartLogo from "./assets/flowChartLogo.svg"
 import Tables from "./components/tables"
 import { useState } from "react"
 import ReferralForm from "./components/referralForm"
+import customerSupportLogo from "./assets/customerSupportLogo.png"
+import circleLogo from "./assets/circleLogo.png"
+import accredianLogoBottom from "./assets/accredianLogoBottom.png"
+import plusLogo from "./assets/plusLogo.png"
+import facebookLogo from "./assets/facebookLogo.png"
+import linkedInLogo from "./assets/linkedInLogo.png"
+import twitterLogo from "./assets/twitterLogo.png"
+import instagramLogo from "./assets/instagramLogo.png"
+import youtubeLogo from "./assets/youtubeLogo.png"
+import blueArrowLogo from "./assets/blueArrowLogo.png"
 function App() {
 
   const [referralForm,setReferralForm] = useState(false);
@@ -57,7 +67,7 @@ function App() {
           </div>
         </div>
         <div className="flex justify-center items-center h-[79px] w-full">
-          <div className="w-[797px] h-[63px] flex flex-row items-center justify-center space-x-32 bg-(--container-blue) rounded-[38px]">
+          <div className="w-[797px] font-roboto h-[63px] flex flex-row items-center justify-center space-x-32 bg-(--container-blue) rounded-[38px]">
             <div className="text-(--text-blue) font-normal text-[25px] cursor-pointer" onClick={handleReferClick}>
               Refer
             </div>
@@ -152,9 +162,13 @@ function App() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row w-full rounded-[12px] p-2 bg-(--text-blue) h-[210px] mt-20">
-          <div>
-
+        <div className="flex flex-row items-center justify-between pl-10 pr-10 relative w-full rounded-[12px] p-2 bg-(--text-blue) h-[210px] mt-20">
+          <div className="absolute right-0">
+            <img src={circleLogo} alt="" />
+          </div>
+        <div className="flex flex-row space-x-10 w-full">
+        <div>
+            <img src={customerSupportLogo} alt="" />
           </div>
           <div>
             <div className="text-white text-[28.01px]">
@@ -165,12 +179,99 @@ function App() {
             </div>
           </div>
         </div>
+        <div className="h-[52px] w-[200px] relative rounded-[8px] z-auto flex justify-center items-center bg-white text-(--text-blue) ">
+          Get in touch <div><img src={blueArrowLogo} alt="" className="ml-2" width={20} height={20}/></div>
+        </div>
+        </div>
         </div>
         
         <div></div>
       </div>
-      <div className="mt-10 flex flex-col items-center h-[795.88px] bg-(--bg-black)">
-        
+      <div className="mt-10 flex z-0 font-roboto flex-col items-center h-[795.88px] bg-(--bg-black)">
+        <div className="w-[1200px] mt-10">
+          <div className="flex flex-row items-center justify-between">
+            <div><img src={accredianLogoBottom} alt="" /></div>
+            <div className="flex flex-col justify-center items-center text-white">
+              <div className="w-[250px] text-[14px] h-[39px] rounded-[8px] bg-(--btn-blue) flex justify-center items-center">
+                Schedule 1-on-1 Call Now
+              </div>
+              <div className="text-[14px]">Speak with our Learning Advisor</div>
+            </div>
+          </div>
+          <hr className="mt-10 text-white"/>
+          <div className="mt-10 text-white w-[1152px] h-[539px] gap-20 grid grid-cols-[3fr_4fr_2fr]">
+            <div className="flex w-full flex-col space-y-5 items-start">
+              <div className="text-[20px] font-normal">Programs</div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Data Science & AI</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Product Management</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Business Analytics</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Digital Transformation</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Business Management</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Project Management</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Strategy & Leadership</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Senior Management</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+              <div className="w-full flex flex-row justify-between items-center">
+                <div className="text-[17px] font-bold">Fintech</div>
+                <div><img src={plusLogo} alt="" /></div>
+              </div>
+            </div>
+            <div className="flex w-full flex-col items-start">
+              <div className="text-[20px] font-normal">Contact Us</div>
+              <div className="text-[14px] w-full mt-4">Email us (For Data Science Queries): admissions@accredian.com</div>
+              <div className="text-[14px] w-full">Email us (For Product Management Queries):pm@accredian.com</div>
+              <div className="text-[14px] w-full">Data Science Admission Helpline:+91 9079653292 (9 AM - 7 PM)</div>
+              <div className="text-[14px] w-full">Product Management Admission Helpline:+91 9625811095</div>
+              <div className="text-[14px] w-full">Enrolled Student Helpline: +91 7969322507</div>
+              <div className="text-[14px] w-full">Office Address: 4th Floor, 250, Phase IV, Udyog Vihar, Sector 18, Gurugram, Haryana 122015</div>
+              <div className="text-[18px] font-normal">Why Accredian</div>
+              <div className="text-[20px] font-[300px]">Follow Us</div>
+              <div className="flex flex-row space-x-4 mt-2">
+                <div><img src={facebookLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
+                <div><img src={linkedInLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
+                <div><img src={twitterLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
+                <div><img src={instagramLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
+                <div><img src={youtubeLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
+              </div>
+            </div>
+            <div className="flex w-full flex-col items-start">
+              <div className="text-[20px] font-normal ">Accredian</div>
+              <div className="flex flex-col space-y-1">
+              <div className="text-[14px] font-normal mt-4">About</div>
+              <div className="text-[14px] font-normal">Careers</div>
+              <div className="text-[14px] font-normal">Blog</div>
+              <div className="text-[14px] font-normal">Admission Policy</div>
+              <div className="text-[14px] font-normal">Referral Policy</div>
+              <div className="text-[14px] font-normal">Privacy Policy</div>
+              <div className="text-[14px] font-normal">Terms of Service</div>
+              <div className="text-[14px] font-normal">Master FAQS</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

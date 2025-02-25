@@ -1,9 +1,9 @@
 import arrowLogo from "../assets/arrowLogo.png"
 import arrowBlackLogo from "../assets/arrowBlackLogo.png"
-
+import downGrayArrowLogo from "../assets/downGrayArrowLogo.png"
 export default function Tables(){
     return(
-        <div className="w-full mt-10">
+        <div className="w-full font-sans mt-10">
             <div className="flex justify-end mr-44">
                 Enrolled
             </div>
@@ -95,59 +95,78 @@ export default function Tables(){
                         <div className="text-[20px] text-(--text-dark-blue) font-[700px] h-full flex border-r items-center">Referrer Bonus</div>
                         <div className="text-[20px] text-(--text-dark-blue) font-[700px] ">Referee Bonus</div>
                     </div>
-                    <div className="w-full grid grid-cols-[10fr_4fr_3fr] gap-10 pl-4 pr-4 rounded-b-[14px] h-[503px] shadow-xl">
-                        <div className="border-r ">
-                            <div className="mt-6 flex flex-col space-y-6">
-                            <div>
-                            Professional Certificate Program in Product Management
+                    <div className="w-full grid grid-cols-[10fr_4fr_3fr] gap-x-10 pl-4 pr-4 rounded-b-[14px] h-[503px] shadow-xl">
+                            <div className="border-r ">
+                                <div className="w-[300px]">Professional Certificate Program in Product Management</div>
                             </div>
-                            <div>
-                            Professional Certificate Program in Product Management
-                            </div>
-                            <div>
-                            Professional Certificate Program in Product Management
-                            </div>
-                            <div>
-                            Professional Certificate Program in Product Management
-                            </div>
-                            </div>
-                        </div>
-                        <div className="border-r">
-                        <div className="mt-6 flex flex-col space-y-6">
-                            <div>
+                            <div className="border-r ">
                                 7,000
                             </div>
                             <div>
                                 9,000
                             </div>
-                            <div>
-                                10,000
+                            <div className="border-r ">
+                                <div className="w-[300px]">Professional Certificate Program in Strategic Product Management</div>
                             </div>
-                            <div>
-                                10,000
-                            </div>
-                            </div>
-                        </div>
-                        <div className="">
-                        <div className="mt-6 flex flex-col space-y-6">
-                            <div>
-                                7,000
-                            </div>
-                            <div>
+                            <div className="border-r ">
                                 9,000
                             </div>
                             <div>
+                                11,000
+                            </div>
+                            <div className="border-r ">
+                                <div className="w-[300px]">Professional Certificate Program in Data Driven Product Management</div>
+                            </div>
+                            <div className="border-r ">
                                 10,000
                             </div>
                             <div>
                                 10,000
                             </div>
+                            <div className="border-r ">
+                                <div className="w-[300px]">Professional Certificate Program in Product Management and Digital Transformation</div>
                             </div>
-                        </div>
+                            <div className="border-r ">
+                                10,000
+                            </div>
+                            <div>
+                                10,000
+                            </div>
+                            <div className="border-r ">
+                                <div className="w-[300px]">Executive Program in Product Management</div>
+                            </div>
+                            <div className="border-r ">
+                                10,000
+                            </div>
+                            <div>
+                                10,000
+                            </div>
+                            <div className="border-r ">
+                                <div className="w-[320px]">Advanced Certification in Product Management</div>
+                            </div>
+                            <div className="border-r ">
+                                10,000
+                            </div>
+                            <div>
+                                10,000
+                            </div>
+                            <div className="border-r ">
+                                <div className="w-[320px]">Executive Program in Product Management and Project Management</div>
+                            </div>
+                            <div className="border-r "> 
+                                10,000
+                            </div>
+                            <div>
+                                10,000
+                            </div>
                     </div>
                 </div>
             </div>
-           
+           <div className="flex justify-end mr-32 mt-5">
+                <div className="h-[41px] w-[174.66px] flex justify-center items-center border border-(--border-gray) rounded-[8px] text-(--text-disable)">
+                Show more <div><img src={downGrayArrowLogo} alt="" className="ml-4 mt-1" width={15} height={9}/></div>
+                </div>
+            </div>
         </div>
     )
 }
