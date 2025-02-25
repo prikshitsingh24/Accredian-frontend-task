@@ -7,11 +7,22 @@ import cashAbovePhoneLogo from "./assets/cashAbovePhoneLogo.png"
 import cashBelowPhoneLogo from "./assets/cashBelowPhoneLogo.png"
 import flowChartLogo from "./assets/flowChartLogo.svg"
 import Tables from "./components/tables"
+import { useState } from "react"
+import ReferralForm from "./components/referralForm"
 function App() {
 
+  const [referralForm,setReferralForm] = useState(false);
+  const handleReferClick=()=>{
+    setReferralForm(!referralForm);
+  }
 
   return (
     <div>
+      {referralForm && (
+        <div className="w-full h-full flex justify-center items-center fixed z-100 backdrop-blur-sm">
+          <ReferralForm formStatus={handleReferClick}/>
+        </div>
+      )}
       <div className="bg-(--nav-bar-blue) font-medium w-full h-[60px] flex justify-center items-center">
         Navigate your ideal career path with tailored expert advice <span className="text-(--text-blue) ml-4">Contact Expert</span>
       </div>
@@ -47,7 +58,7 @@ function App() {
         </div>
         <div className="flex justify-center items-center h-[79px] w-full">
           <div className="w-[797px] h-[63px] flex flex-row items-center justify-center space-x-32 bg-(--container-blue) rounded-[38px]">
-            <div className="text-(--text-blue) font-normal text-[25px]">
+            <div className="text-(--text-blue) font-normal text-[25px] cursor-pointer" onClick={handleReferClick}>
               Refer
             </div>
             <div className="text-(--text-gray) font-normal text-[25px]">
@@ -83,7 +94,7 @@ function App() {
               Let's Learn<br />& Earn
             </div>
               <div className="mt-14 text-[40px] text-(--text-black)">Get a chance to win<br />up-to <span className="text-(--text-blue) font-bold">Rs. 15,000</span></div>
-              <div className="w-[192px] h-[54px] flex justify-center items-center rounded-[8px] text-white mt-20 bg-(--btn-blue)">
+              <div className="w-[192px] h-[54px] flex justify-center items-center rounded-[8px] text-white mt-20 bg-(--btn-blue) cursor-pointer" onClick={handleReferClick}>
                 Refer Now
               </div>
             </div>
@@ -103,7 +114,7 @@ function App() {
           <img src={flowChartLogo} alt="" />
         </div>
         <div>
-        <div className="w-[236px] h-[64px] flex justify-center items-center rounded-[8px] text-white mt-20 bg-(--btn-blue)">
+        <div className="w-[236px] h-[64px] flex justify-center items-center rounded-[8px] text-white mt-20 bg-(--btn-blue) cursor-pointer" onClick={handleReferClick}>
           Refer Now
         </div>
         </div>
@@ -116,7 +127,7 @@ function App() {
           </div>
           <Tables></Tables>
           <div className="flex justify-center mt-20">
-          <div className="w-[236px] h-[64px] flex justify-center items-center rounded-[8px] text-white bg-(--btn-blue)">
+          <div className="w-[236px] h-[64px] flex justify-center items-center rounded-[8px] text-white bg-(--btn-blue) cursor-pointer" onClick={handleReferClick}>
           Refer Now
         </div>
           </div>
