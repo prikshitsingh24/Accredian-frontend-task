@@ -30,6 +30,7 @@ import whiteDownArrowLogo from "./assets/whiteDownArrowLogo.png"
 import upwardArrowLogo from "./assets/upwardArrowLogo.png"
 import downwardArrowLogo from "./assets/downwardArrowLogo.png"
 import callLogo from "./assets/callLogo.png"
+
 function App() {
   const isPhone = IsPhone();
   const referRef = useRef<any>(null);
