@@ -5,12 +5,15 @@ const IsPhone = () => {
 
     useEffect(() => {
         const handleResize = () => {
+            // Check screen width
+            const isSmallScreen = window.innerWidth <= 768;
+            const isMobileDevice =
+                /Mobi|Android|iphone/i.test(navigator.userAgent);
 
-            setIsPhone(window.innerWidth <= 768);
+            setIsPhone(isSmallScreen || isMobileDevice)
         };
 
         handleResize();
-
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
