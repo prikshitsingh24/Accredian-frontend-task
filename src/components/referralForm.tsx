@@ -99,7 +99,13 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
             setDisable(false);
             setError({isError:false})
             setInfo(true)
-        }else{
+        }
+        if (response.status == 400){
+            setDisable(false);
+            const error = await response.json()
+            setError({isError:true,errorMsg:error})
+        }
+        else{
             setDisable(false);
             setError({isError:true,errorMsg:"Couldn't Send the Referral Please Try Again!"})
         }
