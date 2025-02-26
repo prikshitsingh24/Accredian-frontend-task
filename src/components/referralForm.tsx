@@ -32,14 +32,13 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/course/getAllCourses`); // Replace with your actual API
+                const response = await fetch(`${import.meta.env.VITE_APP_BACKEND_URL}/api/course/getAllCourses`);
                 const data = await response.json();
-                console.log(data)
-                setCourses(data); // Assuming the API returns a list of courses in `data.courses`
+                setCourses(data);
             } catch (error) {
                 console.error("Error fetching courses:", error);
             } finally {
-                setLoading(false); // Stop loading after data is fetched
+                setLoading(false);
             }
         };
 
@@ -71,16 +70,7 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
 
     const handleSubmit = async() => {
         setDisable(true)
-        console.log({
-            refereeEmail,
-            refereeName,
-            referrerEmail,
-            referrerName,
-            selectedCourseId,
-            selectedCourseName
-        });
         if (!refereeEmail || !refereeName || !referrerEmail || !referrerName || !selectedCourseId || !selectedCourseName){
-            console.log("Please provide all the values")
             setError({isError:true,errorMsg:"Please Fill all the details!"})
             setDisable(false);
             return
@@ -109,7 +99,6 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
             setDisable(false);
             setError({isError:false})
             setInfo(true)
-            console.log("Referral sent successfully!")
         }else{
             setDisable(false);
             setError({isError:true,errorMsg:"Couldn't Send the Referral Please Try Again!"})
