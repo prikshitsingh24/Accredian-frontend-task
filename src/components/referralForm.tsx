@@ -31,7 +31,7 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await fetch("http://localhost:3000/api/course/getAllCourses"); // Replace with your actual API
+                const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/course/getAllCourses`); // Replace with your actual API
                 const data = await response.json();
                 console.log(data)
                 setCourses(data); // Assuming the API returns a list of courses in `data.courses`
@@ -85,7 +85,7 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
             return
         }
 
-        const response = await fetch("http://localhost:3000/api/referral/createReferral",{
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/referral/createReferral`,{
             method:"POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
