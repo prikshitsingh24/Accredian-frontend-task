@@ -98,7 +98,7 @@ function App() {
         )}
         <div className="bg-(--nav-bar-blue) pl-2 text-[14px] relative font-medium w-full h-[60px] flex justify-between items-center">
           <div>Navigate your ideal career path with<br />tailored expert advice</div>
-          <div className="text-(--text-blue) ml-4 font-bold text-[16px] absolute right-2 top-5">Contact Expert</div> 
+          <div className="text-(--text-blue) ml-4 font-bold text-[16px] absolute right-2 top-6">Contact Expert</div> 
         </div>
         <div className="h-full w-full pl-2 pr-2">
           <div className="h-full w-full">
