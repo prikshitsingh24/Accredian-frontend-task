@@ -160,7 +160,7 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
                     </select>
                     ) : (
                         <select
-                            className="border rounded-[4px] p-2 pr-4 outline-none"
+                            className="border rounded-[4px]  p-2 pr-4 outline-none"
                             value={`${selectedCourseId}?${selectedCourseName}`}
                             onChange={handleCourseChange}
                         >
@@ -245,7 +245,7 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
                     </select>
                     ) : (
                         <select
-                            className="border rounded-[4px] p-2 pr-4 outline-none"
+                            className="border rounded-[4px] w-[240px] p-2 pr-4 outline-none"
                             value={`${selectedCourseId}?${selectedCourseName}`}
                             onChange={handleCourseChange}
                         >
