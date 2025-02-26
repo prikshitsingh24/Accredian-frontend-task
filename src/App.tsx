@@ -41,6 +41,7 @@ function App() {
   const [faq,setFaq] = useState(false);
   const [support,setSupport] = useState(false);
   const [referralForm,setReferralForm] = useState(false);
+
   const handleReferClick=()=>{
     setReferralForm(!referralForm);
   }
@@ -142,7 +143,7 @@ function App() {
             <div className="absolute bottom-0 right-0 z-0">
               <img src={phoneCashBottomRightLogo} alt="" width={83} height={46}/>
             </div>
-            <div className="absolute left-0 bottom-2 right-0 z-10">
+            <div className="absolute left-0 bottom-2 right-0 ">
               <img src={phoneCashBottomLeftLogo} alt="" width={83} height={46}/>
             </div>
             <div className="h-full w-full flex flex-row justify-center  space-x-6">
@@ -152,7 +153,7 @@ function App() {
               </div>
                 <div className="mt-5 text-[16px] text-(--text-black) flex flex-col items-center">Get a chance to win up-to<br /><span className="text-(--text-blue) font-bold text-[16px]">Rs. 15,000</span></div>
                 <div className="flex justify-center">
-                <div className="w-[152px]  h-[54px] flex justify-center items-center rounded-[3px] text-white mt-8 bg-(--btn-blue) cursor-pointer" onClick={handleReferClick}>
+                <div className="w-[152px]  h-[54px] relative flex justify-center items-center rounded-[3px] text-white mt-8 bg-(--btn-blue) cursor-pointer" onClick={handleReferClick}>
                   Refer Now
                 </div>
                 </div>
