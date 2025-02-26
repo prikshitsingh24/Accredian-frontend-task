@@ -7,7 +7,7 @@ import cashAbovePhoneLogo from "./assets/cashAbovePhoneLogo.png"
 import cashBelowPhoneLogo from "./assets/cashBelowPhoneLogo.png"
 import flowChartLogo from "./assets/flowChartLogo.svg"
 import Tables from "./components/tables"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import ReferralForm from "./components/referralForm"
 import customerSupportLogo from "./assets/customerSupportLogo.png"
 import circleLogo from "./assets/circleLogo.png"
@@ -26,12 +26,65 @@ import phoneCashBottomRightLogo from "./assets/phoneCashBottomRightLogo.png"
 import phoneCashBottomLeftLogo from "./assets/phoneCashBottomLeftLogo.png"
 import menuLogo from "./assets/menuLogo.png"
 import whiteArrowLogo from "./assets/whiteArrowLogo.png"
+import whiteDownArrowLogo from "./assets/whiteDownArrowLogo.png"
+import upwardArrowLogo from "./assets/upwardArrowLogo.png"
+import downwardArrowLogo from "./assets/downwardArrowLogo.png"
+import callLogo from "./assets/callLogo.png"
 function App() {
   const isPhone = IsPhone();
+  const referRef = useRef<any>(null);
+  const benefitsRef = useRef<any>(null);
+  const faqRef = useRef<any>(null);
+  const supportRef = useRef<any>(null);
+  const [refer,setRefer] = useState(true);
+  const [benefits,setBenefits] = useState(false);
+  const [faq,setFaq] = useState(false);
+  const [support,setSupport] = useState(false);
   const [referralForm,setReferralForm] = useState(false);
   const handleReferClick=()=>{
     setReferralForm(!referralForm);
   }
+
+  const handleReferScrollClick=()=>{
+    setSupport(false);
+    setFaq(false);
+    setBenefits(false);
+    setRefer(true);
+    if(referRef.current){
+      referRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  const handleBenefitsClick=()=>{
+    setRefer(false);
+    setSupport(false);
+    setFaq(false);
+    setBenefits(true);
+    if(benefitsRef.current){
+      benefitsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  const handleFaqClick=()=>{
+    setRefer(false);
+    setSupport(false);
+    setBenefits(false);
+    setFaq(true);
+    if(faqRef.current){
+      faqRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  const handleSupportClick=()=>{
+    setRefer(false);
+    setBenefits(false);
+    setFaq(false);
+    setSupport(true);
+    if(supportRef.current){
+      supportRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
 
   if (isPhone){
     return (
@@ -68,7 +121,7 @@ function App() {
               <div className="text-(--text-blue) font-normal text-[15px] cursor-pointer" onClick={handleReferClick}>
                 Refer
               </div>
-              <div className="text-(--text-gray) font-normal text-[15px]">
+              <div className="text-(--text-gray) font-normal text-[15px] cursor-pointer" onClick={handleBenefitsClick}>
                 Benefits
               </div>
               <div className="text-(--text-gray) font-normal text-[15px]">
@@ -128,6 +181,9 @@ function App() {
   else{
     return (
       <div>
+        <div className="fixed right-5 bottom-5 z-9">
+          <img src={callLogo} alt="" />
+        </div>
         {referralForm && (
           <div className="w-full h-full flex justify-center items-center fixed z-100 backdrop-blur-sm">
             <ReferralForm formStatus={handleReferClick}/>
@@ -142,10 +198,11 @@ function App() {
           <div className="flex flex-row justify-between items-center h-[79px] pt-[9.6px] mb-[9.6px]">
             <div className="flex flex-row space-x-5 items-center">
               <div>
-                <img src={accredianLogo} alt="" width={125} height={36}/>
+                <a href="https://accredian.com/" target="_blank"><img src={accredianLogo} alt="" width={125} height={36}/></a>
               </div>
               <div className="w-[116px] h-[40px] flex flex-row justify-center items-center font-medium text-[14.88px] bg-(--btn-blue) rounded-[6px] text-white">
                 Courses
+                <img src={whiteDownArrowLogo} alt="" className="ml-2"/>
               </div>
             </div>
             <div className="flex flex-row space-x-5 items-center">
@@ -168,17 +225,21 @@ function App() {
           </div>
           <div className="flex justify-center items-center h-[79px] w-full">
             <div className="w-[797px] font-roboto h-[63px] flex flex-row items-center justify-center space-x-32 bg-(--container-blue) rounded-[38px]">
-              <div className="text-(--text-blue) font-normal text-[25px] cursor-pointer" onClick={handleReferClick}>
+              <div className={`${refer?'text-(--text-blue)':'text-(--text-gray)'} flex flex-col items-center font-normal text-[25px] cursor-pointer`} onClick={handleReferScrollClick}>
                 Refer
+                {refer && <div className="w-[6px] h-[6px] bg-(--btn-blue) rounded-full "></div>}
               </div>
-              <div className="text-(--text-gray) font-normal text-[25px]">
+              <div className={`${benefits?'text-(--text-blue)':'text-(--text-gray)'} flex flex-col items-center font-normal text-[25px] cursor-pointer`} onClick={handleBenefitsClick}>
                 Benefits
+                {benefits && <div className="w-[6px] h-[6px] bg-(--btn-blue) rounded-full "></div>}
               </div>
-              <div className="text-(--text-gray) font-normal text-[25px]">
+              <div className={`${faq?'text-(--text-blue)':'text-(--text-gray)'} flex flex-col items-center font-normal text-[25px] cursor-pointer`} onClick={handleFaqClick}>
                 FAQs
+                {faq && <div className="w-[6px] h-[6px] bg-(--btn-blue) rounded-full "></div>}
               </div>
-              <div className="text-(--text-gray) font-normal text-[25px]">
+              <div className={`${support?'text-(--text-blue)':'text-(--text-gray)'} flex flex-col items-center font-normal text-[25px] cursor-pointer`} onClick={handleSupportClick}>
                 Support
+                {support && <div className="w-[6px] h-[6px] bg-(--btn-blue) rounded-full "></div>}
               </div>
             </div>
           </div>
@@ -216,7 +277,7 @@ function App() {
           </div>
           <div></div>
         </div>
-        <div className="mt-10 flex flex-col items-center h-[785px] bg-(--container-white)">
+        <div ref={benefitsRef} className="mt-10 flex flex-col items-center h-[785px] bg-(--container-white)">
           <div className="flex flex-row justify-center w-full mt-8 text-[27.66px] font-semibold">
             How Do I <span className="text-(--text-blue) ml-2">Refer?</span>
           </div>
@@ -241,11 +302,11 @@ function App() {
             Refer Now
           </div>
             </div>
-            <div className="mt-36 flex flex-col ">
+            <div ref={faqRef} className="mt-36 flex flex-col ">
             <div className="text-[27.66px] font-semibold flex justify-center">Frequently Asked <span className="text-(--text-blue) ml-2">Questions</span></div>
             <div className="flex flex-row mt-20 space-x-20">
               <div className="space-y-4">
-                <div className="w-[259px] h-[68px] rounded-[7px] shadow-lg flex justify-center items-center">
+                <div className="w-[259px] h-[68px] border-2 border-(--border-white) rounded-[7px] shadow-lg flex justify-center items-center">
                   Eligibility
                 </div>
                 <div className="w-[259px] h-[68px] rounded-[7px] shadow-lg border flex justify-center items-center">
@@ -256,9 +317,9 @@ function App() {
                 </div>
               </div>
               <div>
-              <div className="text-(--text-blue) mb-10">Do I need to have prior Product Management and Project Management experience to enroll in the program?</div>
+              <div className="text-(--text-blue) mb-10 flex items-center">Do I need to have prior Product Management and Project Management experience to enroll in the program?  <div className="ml-4"><img src={upwardArrowLogo} alt="" width={12} height={7.14}/></div></div>
               <div className="mb-10">No, the program is designed to be inclusive of all levels of experience. All topics will be covered from the basics,<br />making it suitable for individuals from any field of work.</div>
-              <div>What is the minimum system configuration required?</div>
+              <div className="flex items-center">What is the minimum system configuration required? <div className="ml-4"><img src={downwardArrowLogo} alt="" width={12} height={7.14}/></div></div>
               </div>
             </div>
           </div>
@@ -287,7 +348,7 @@ function App() {
           
           <div></div>
         </div>
-        <div className="mt-10 flex z-0 font-roboto flex-col items-center h-[795.88px] bg-(--bg-black)">
+        <div ref={supportRef} className="mt-10 flex z-0 font-roboto flex-col items-center h-[795.88px] bg-(--bg-black)">
           <div className="w-[1200px] mt-10">
             <div className="flex flex-row items-center justify-between">
               <div><img src={accredianLogoBottom} alt="" /></div>
@@ -350,26 +411,29 @@ function App() {
                 <div className="text-[18px] font-normal">Why Accredian</div>
                 <div className="text-[20px] font-[300px]">Follow Us</div>
                 <div className="flex flex-row space-x-4 mt-2">
-                  <div><img src={facebookLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
-                  <div><img src={linkedInLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
-                  <div><img src={twitterLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
-                  <div><img src={instagramLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
-                  <div><img src={youtubeLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div>
+                  <a href="https://www.facebook.com/insaidlearn" target="_blank"><div><img src={facebookLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div></a>
+                  <a href="https://www.linkedin.com/school/insaid/" target="_blank"> <div><img src={linkedInLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div></a>
+                  <a href="https://x.com/insaidlearn" target="_blank"><div><img src={twitterLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div></a>
+                  <a href="https://www.instagram.com/insaid.learn/" target="_blank"><div><img src={instagramLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div></a>
+                  <a href="https://www.youtube.com/channel/UCE0L_4ADPU2iyKnDJ0xRzyA" target="_blank"><div><img src={youtubeLogo} alt="" width={27.190000534057617} height={27.190000534057617} /></div></a>
                 </div>
               </div>
               <div className="flex w-full flex-col items-start">
                 <div className="text-[20px] font-normal ">Accredian</div>
                 <div className="flex flex-col space-y-1">
-                <div className="text-[14px] font-normal mt-4">About</div>
-                <div className="text-[14px] font-normal">Careers</div>
-                <div className="text-[14px] font-normal">Blog</div>
-                <div className="text-[14px] font-normal">Admission Policy</div>
-                <div className="text-[14px] font-normal">Referral Policy</div>
-                <div className="text-[14px] font-normal">Privacy Policy</div>
-                <div className="text-[14px] font-normal">Terms of Service</div>
-                <div className="text-[14px] font-normal">Master FAQS</div>
+                <a href="https://accredian.com/About" target="_blank"><div className="text-[14px] font-normal mt-4">About</div></a>
+                <a href="https://accredian.com/Career" target="_blank"><div className="text-[14px] font-normal">Careers</div></a>
+                <a href="https://blog.accredian.com/" target="_blank"><div className="text-[14px] font-normal">Blog</div></a>
+                <a href="https://accredian.com/policies/accredian-policy" target="_blank"><div className="text-[14px] font-normal">Admission Policy</div></a>
+                <a href="https://accredian.com/terms/referral" target="_blank"><div className="text-[14px] font-normal">Referral Policy</div></a>
+                <a href="https://accredian.com/terms/privacy" target="_blank"><div className="text-[14px] font-normal">Privacy Policy</div></a>
+                <a href="https://accredian.com/terms" target="_blank"><div className="text-[14px] font-normal">Terms of Service</div></a>
+                <a href="https://accredian.com/Faq" target="_blank"><div className="text-[14px] font-normal">Master FAQS</div></a>
                 </div>
               </div>
+            </div>
+            <div className="flex justify-center text-white">
+            © 2024 Accredian A Brand of FullStack Education Pvt Ltd. All Rights Reserved
             </div>
           </div>
         </div>

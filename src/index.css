@@ -22,8 +22,26 @@ body {
     --table-blue:#1A73E859;
     --bg-black:#282828;
     --border-gray:#B6B6B6;
-    --font-roboto:"Roboto"; 
-    --font-sanspro:"Source Sans Pro"
+    --border-white:#E2E8F0;
+    --font-roboto:"Roboto";
+    --font-sanspro:"sanspro";
+    --font-sanspro-semibold:"sanspro-semibold"
+}
+
+/* Regular weight */
+@font-face {
+    font-family: 'sanspro';
+    src: url('./assets/fonts/SourceSansPro-Regular.ttf') format('truetype');
+    font-weight: regular;
+    font-style: normal;
+}
+
+/* Bold weight */
+@font-face {
+    font-family: 'sanspro-semibold';
+    src: url('./assets/fonts/SourceSansPro-SemiBold.ttf') format('truetype');
+    font-weight: semibold;
+    font-style: normal;
 }
 
 
