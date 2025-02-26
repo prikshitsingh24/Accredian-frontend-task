@@ -92,7 +92,7 @@ function App() {
     return (
       <div>
         {referralForm && (
-          <div className="w-full h-full flex justify-center items-center fixed z-100 backdrop-blur-sm">
+          <div className="w-full h-full flex justify-center items-center fixed z-100 backdrop-blur-sm pl-2 pr-2">
             <ReferralForm formStatus={handleReferClick}/>
           </div>
         )}
