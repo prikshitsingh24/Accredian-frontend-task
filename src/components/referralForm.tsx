@@ -102,8 +102,7 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
         }
         else if(response.status == 400){
             setDisable(false);
-            const error = await response.json()
-            setError({isError:true,errorMsg:error})
+            setError({isError:true,errorMsg:"Referral already sent to the referee"})
         }
         else{
             setDisable(false);
