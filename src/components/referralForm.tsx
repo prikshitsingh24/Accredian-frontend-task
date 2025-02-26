@@ -1,3 +1,4 @@
+import CircularProgress from "@mui/material/CircularProgress";
 import { useEffect, useState } from "react";
 import crossLogo from "../assets/crossLogo.png";
 import IsPhone from "./isPhone";
@@ -153,11 +154,9 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
                     <div className="text-[14px]">Courses</div>
                     {/* Replace input with select dropdown */}
                     {loading ? (
-                        <select
-                        className="border rounded-[4px] p-2 pr-4 outline-none"
-                    >
-                    <option value="">Select a Course</option>
-                    </select>
+                          <div>
+                          <CircularProgress size="20px" />
+                      </div>
                     ) : (
                         <select
                             className="border rounded-[4px]  p-2 pr-4 outline-none"
@@ -238,11 +237,9 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
                     <div className="text-[14px]">Courses</div>
                     {/* Replace input with select dropdown */}
                     {loading ? (
-                        <select
-                        className="border rounded-[4px] p-2 pr-4 outline-none"
-                    >
-                    <option value="">Select a Course</option>
-                    </select>
+                        <div>
+                            <CircularProgress size="20px" />
+                        </div>
                     ) : (
                         <select
                             className="border rounded-[4px] w-[240px] p-2 pr-4 outline-none"
