@@ -89,18 +89,18 @@ export default function ReferralForm({ formStatus }: { formStatus: () => void })
             })
         })
         
-        if (response.status == 201){
+        if(response.status == 201){
             setRefereeEmail("");
             setRefereeName("");
             setReferrerEmail("");
             setReferrerName("");
-            setSelectedCourseId(""); // Reset to an empty or initial value
+            setSelectedCourseId("");
             setSelectedCourseName("");
             setDisable(false);
             setError({isError:false})
             setInfo(true)
         }
-        if (response.status == 400){
+        else if(response.status == 400){
             setDisable(false);
             const error = await response.json()
             setError({isError:true,errorMsg:error})
